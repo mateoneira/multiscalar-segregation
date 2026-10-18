@@ -1,0 +1,42 @@
+paths:
+  data_raw: data/raw
+  data_interim: data/interim
+  data_processed: data/processed
+  figures: figures
+
+network:
+  # 2020 OpenStreetMap street-network snapshot.
+  nodes: data/network/ec_nodes.csv           # node_id, lon, lat (no header)
+  edgelist: data/network/ec_edgelist.csv     # source, target, length_m (no header)
+  crs: "EPSG:4326"
+
+percolation:
+  sweep_min_m: 100
+  sweep_max_m: 12000
+  sweep_step_m: 10
+  # Hierarchy levels detected by pipeline/experiments/detect_transitions.py and
+  # pinned here (leaf level first). 1960/4070/5950/6340 are critical transitions
+  # (susceptibility + second-component peaks); 160/340/1080 are the largest
+  # subcritical macroscopic merges (smaller cluster >= 1% of nodes).
+  levels_m: [160, 340, 1080, 1960, 4070, 5950, 6340]
+  critical_m: [1960, 4070, 5950, 6340]
+  min_cluster_nodes: 600
+
+groups:
+  n_groups: 10          # deciles of the ICV
+  sensitivity: [4, 5, 10]
+
+census:
+  y2010:
+    # 2010 microdata harmonized to 2022 manzana geography (INEC re-release)
+    microdata_url: "https://www.ecuadorencifras.gob.ec/documentos/web-inec/bd-censo/2010/manzana/csv/1.2_BDD_CPV_2010_MANLOC_CON_CORRESP_2022_CSV.zip"
+  y2022:
+    microdata_url: "https://www.ecuadorencifras.gob.ec/documentos/web-inec/bd-censo/manzana/BDD_CPV2022_MANLOC_CSV.zip"
+    dictionary_url: "https://www.ecuadorencifras.gob.ec/documentos/web-inec/dicc-censo/2022/DICCIONARIO_BDD_MANLOC.xlsx"
+  geodatabase_url: "https://www.ecuadorencifras.gob.ec/documentos/web-inec/Geografia_Estadistica/Documentos/GEODATABASE_NACIONAL_2021.zip"
+
+robustness:
+  n_permutations: 1000
+  n_bootstrap: 500
+  threshold_perturbation_m: 200
+  random_seed: 20260713

@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the article below."
+title: "multiscalar-segregation: code for The multiscale structure of socio-spatial segregation"
+type: software
+license: MIT
+repository-code: "https://github.com/mateoneira/multiscalar-segregation"
+authors:
+  - family-names: "Neira Alvarez"
+    given-names: "Daniel Mateo"
+    affiliation: "University College London"
+    orcid: "https://orcid.org/0000-0002-9451-8171"
+references:
+  - type: data
+    title: "Data for: The multiscale structure of socio-spatial segregation"
+    doi: "10.5281/zenodo.23456682"
+    authors:
+      - family-names: "Neira Alvarez"
+        given-names: "Daniel Mateo"
+preferred-citation:
+  type: article
+  title: "The multiscale structure of socio-spatial segregation"
+  authors:
+    - family-names: "Neira"
+      given-names: "Mateo"
+    - family-names: "Marin"
+      given-names: "Valentina"
+    - family-names: "Arcaute"
+      given-names: "Elsa"

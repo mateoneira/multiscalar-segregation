@@ -1,0 +1,43 @@
+[project]
+name = "multiscalar-segregation"
+version = "1.0.0"
+description = "Multiscalarity in socio-spatial segregation: percolation-derived hierarchies and the Generalised Jensen-Shannon Divergence, applied to Ecuador (censuses 2010 and 2022)"
+authors = [
+    { name = "Mateo Neira", email = "mateo.neira.16@ucl.ac.uk" },
+]
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "geopandas>=1.0",
+    "pyogrio>=0.9",
+    "shapely>=2.0",
+    "networkx>=3.2",
+    "scipy>=1.11",
+    "matplotlib>=3.8",
+    "osmnx>=2.0",
+    "requests>=2.31",
+    "tqdm>=4.66",
+    "pyyaml>=6.0",
+    "pyarrow>=15.0",
+    "openpyxl>=3.1.5",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "jupyter>=1.0",
+    "ipykernel>=6.29",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/multiscalar_segregation"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
